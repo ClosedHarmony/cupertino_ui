@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+// TODO(QuncCccccc): Remove ignore once https://github.com/flutter/flutter/issues/196406 is fixed.
+// ignore: uri_does_not_exist_in_doc_import
 /// @docImport 'package:material_ui/material_ui.dart';
 ///
 /// @docImport 'list_section.dart';
@@ -185,7 +187,8 @@ class _CupertinoExpansionTileState extends State<CupertinoExpansionTile> {
         semanticsHint = _tileController.isExpanded
             ? '${localizations.collapsedHint}\n ${localizations.expansionTileExpandedHint}'
             : '${localizations.expandedHint}\n ${localizations.expansionTileCollapsedHint}';
-      case TargetPlatform.android || TargetPlatform.ohos:
+      case TargetPlatform.ohos:
+      case TargetPlatform.android:
       case TargetPlatform.fuchsia:
       case TargetPlatform.linux:
       case TargetPlatform.windows:

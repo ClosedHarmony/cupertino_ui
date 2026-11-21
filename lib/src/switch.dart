@@ -7,6 +7,8 @@
 // bool _lights = false;
 // void setState(VoidCallback fn) { }
 
+// TODO(QuncCccccc): Remove ignore once https://github.com/flutter/flutter/issues/196406 is fixed.
+// ignore: uri_does_not_exist_in_doc_import
 /// @docImport 'package:material_ui/material_ui.dart';
 ///
 /// @docImport 'list_tile.dart';
@@ -700,7 +702,8 @@ class _CupertinoSwitchState extends State<CupertinoSwitch>
     switch (defaultTargetPlatform) {
       case TargetPlatform.iOS:
         HapticFeedback.lightImpact();
-      case TargetPlatform.android || TargetPlatform.ohos:
+      case TargetPlatform.ohos:
+      case TargetPlatform.android:
       case TargetPlatform.fuchsia:
       case TargetPlatform.linux:
       case TargetPlatform.macOS:

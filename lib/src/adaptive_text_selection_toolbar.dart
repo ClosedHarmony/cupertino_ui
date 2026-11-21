@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+// TODO(QuncCccccc): Remove ignore once https://github.com/flutter/flutter/issues/196406 is fixed.
+// ignore: uri_does_not_exist_in_doc_import
 /// @docImport 'package:material_ui/material_ui.dart';
 library;
 
@@ -193,7 +195,8 @@ class CupertinoAdaptiveTextSelectionToolbar extends StatelessWidget {
     List<ContextMenuButtonItem> buttonItems,
   ) {
     switch (defaultTargetPlatform) {
-      case TargetPlatform.android || TargetPlatform.ohos:
+      case TargetPlatform.ohos:
+      case TargetPlatform.android:
       case TargetPlatform.fuchsia:
       case TargetPlatform.iOS:
         return buttonItems.map((ContextMenuButtonItem buttonItem) {
@@ -219,7 +222,8 @@ class CupertinoAdaptiveTextSelectionToolbar extends StatelessWidget {
         children ?? getAdaptiveButtons(context, buttonItems!).toList();
 
     switch (defaultTargetPlatform) {
-      case TargetPlatform.android || TargetPlatform.ohos:
+      case TargetPlatform.ohos:
+      case TargetPlatform.android:
       case TargetPlatform.iOS:
       case TargetPlatform.fuchsia:
         return CupertinoTextSelectionToolbar(

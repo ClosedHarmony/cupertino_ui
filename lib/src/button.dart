@@ -313,7 +313,7 @@ class CupertinoButton extends StatefulWidget {
   static double tapMoveSlop() {
     return switch (defaultTargetPlatform) {
       TargetPlatform.iOS ||
-      TargetPlatform.android || TargetPlatform.ohos ||
+      TargetPlatform.ohos || TargetPlatform.android ||
       TargetPlatform.fuchsia => kCupertinoButtonTapMoveSlop,
       TargetPlatform.macOS || TargetPlatform.linux || TargetPlatform.windows => 0.0,
     };

@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+// TODO(QuncCccccc): Remove ignore once https://github.com/flutter/flutter/issues/196406 is fixed.
+// ignore: uri_does_not_exist_in_doc_import
 /// @docImport 'package:material_ui/material_ui.dart';
 library;
 
@@ -340,9 +342,9 @@ class CupertinoTextField extends StatefulWidget {
        assert(maxLength == null || maxLength > 0),
        // Assert the following instead of setting it directly to avoid surprising the user by silently changing the value they set.
        assert(
-         !identical(textInputAction, TextInputAction.newline) ||
+         textInputAction != TextInputAction.newline ||
              maxLines == 1 ||
-             !identical(keyboardType, TextInputType.text),
+             keyboardType != TextInputType.text,
          'Use keyboardType TextInputType.multiline when using TextInputAction.newline on a multiline TextField.',
        ),
        keyboardType =
@@ -480,9 +482,9 @@ class CupertinoTextField extends StatefulWidget {
        assert(maxLength == null || maxLength > 0),
        // Assert the following instead of setting it directly to avoid surprising the user by silently changing the value they set.
        assert(
-         !identical(textInputAction, TextInputAction.newline) ||
+         textInputAction != TextInputAction.newline ||
              maxLines == 1 ||
-             !identical(keyboardType, TextInputType.text),
+             keyboardType != TextInputType.text,
          'Use keyboardType TextInputType.multiline when using TextInputAction.newline on a multiline TextField.',
        ),
        keyboardType =
@@ -1138,7 +1140,8 @@ class CupertinoTextField extends StatefulWidget {
           ValueNotifier<MagnifierInfo> magnifierInfo,
         ) {
           switch (defaultTargetPlatform) {
-            case TargetPlatform.android || TargetPlatform.ohos:
+            case TargetPlatform.ohos:
+            case TargetPlatform.android:
             case TargetPlatform.iOS:
               return CupertinoTextMagnifier(controller: controller, magnifierInfo: magnifierInfo);
             case TargetPlatform.fuchsia:
@@ -1321,7 +1324,8 @@ class _CupertinoTextFieldState extends State<CupertinoTextField>
       case TargetPlatform.linux:
       case TargetPlatform.windows:
       case TargetPlatform.fuchsia:
-      case TargetPlatform.android || TargetPlatform.ohos:
+      case TargetPlatform.ohos:
+      case TargetPlatform.android:
         if (cause == SelectionChangedCause.longPress) {
           _editableText.bringIntoView(selection.extent);
         }
@@ -1330,7 +1334,8 @@ class _CupertinoTextFieldState extends State<CupertinoTextField>
     switch (defaultTargetPlatform) {
       case TargetPlatform.iOS:
       case TargetPlatform.fuchsia:
-      case TargetPlatform.android || TargetPlatform.ohos:
+      case TargetPlatform.ohos:
+      case TargetPlatform.android:
         break;
       case TargetPlatform.macOS:
       case TargetPlatform.linux:
@@ -1537,7 +1542,8 @@ class _CupertinoTextFieldState extends State<CupertinoTextField>
     VoidCallback? handleDidLoseAccessibilityFocus;
     switch (defaultTargetPlatform) {
       case TargetPlatform.iOS:
-      case TargetPlatform.android || TargetPlatform.ohos:
+      case TargetPlatform.ohos:
+      case TargetPlatform.android:
       case TargetPlatform.fuchsia:
         textSelectionControls ??= cupertinoTextSelectionHandleControls;
       case TargetPlatform.linux:
